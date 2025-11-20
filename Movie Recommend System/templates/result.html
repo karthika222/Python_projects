@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 8px 0; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Recommendations for "{{ movie }}"</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% elif recommendations %}
+        <ul>
+            {% for r in recommendations %}
+                <li>🎥 {{ r }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No similar movies found.</p>
+    {% endif %}
+
+    <a href="/">🔙 Back</a>
+</body>
+</html>
